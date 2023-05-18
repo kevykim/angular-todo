@@ -1,0 +1,7 @@
+.list_div {
+    justify-content: space-evenly;
+    text-align: center;
+    width: 400px;
+    min-height: 50px;
+    border: 1px solid black;
+}
