@@ -11,12 +11,12 @@ export class ListComponent {
     {
     task : "read",
     checked: false,
-    date: new Date(2023, 5, 17)
+    date: new Date('2023-05-17')
     },
     {
       task: "study",
       checked: true,
-      date: new Date(2023, 5, 17)
+      date: new Date('2023-05-17')
     }
   ]
 }

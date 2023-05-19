@@ -1,0 +1,10 @@
+<button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
+
+<div *ngIf="show === true">
+    <label>task</label>
+    <input type="text"/>
+    <label>date</label>
+    <input type="date"/>
+    <button (click)="show = false; notclicked()">Add Task</button>
+    <button (click)="show = false; notclicked()">Cancel</button>
+</div>
