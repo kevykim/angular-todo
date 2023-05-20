@@ -2,9 +2,9 @@
 
 <div *ngIf="show === true">
     <label>task</label>
-    <input type="text"/>
+    <input #newItem type="text"/>
     <label>date</label>
     <input type="date"/>
-    <button (click)="show = false; notclicked()">Add Task</button>
+    <button (keyup.enter)="addItem(newItem.value); newItem.value = ''" (click)="addItem(newItem.value)" (click)="show = false; notclicked()">Add Task</button>
     <button (click)="show = false; notclicked()">Cancel</button>
 </div>
