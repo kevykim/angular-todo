@@ -19,4 +19,15 @@ export class ListComponent {
       date: new Date('2023-05-17')
     }
   ]
+
+  addToList(task : string) {
+    this.myList.push({
+      task,
+      checked : false,
+      date : new Date()
+    })
+    console.log(task)
+    console.log(this.myList)
+  }
+
 }

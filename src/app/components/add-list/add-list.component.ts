@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ListInterface } from '../list/list-interface';
+import { Component, Input } from '@angular/core';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-add-list',
@@ -10,6 +10,7 @@ export class AddListComponent {
   show : boolean = false;
   onClick : boolean = true;
 
+  instanceList = new ListComponent();
 
   clicked() {
     this.onClick = false;
@@ -17,6 +18,10 @@ export class AddListComponent {
 
   notclicked() {
     this.onClick = true;
+  }
+
+  addItem(task : string) {
+    this.instanceList.addToList(task);
   }
 
 }
