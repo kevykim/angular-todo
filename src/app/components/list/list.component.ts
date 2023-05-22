@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { ListInterface } from './list-interface';
 
 @Component({
@@ -7,6 +7,21 @@ import { ListInterface } from './list-interface';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
+
+
+  show : boolean = false;
+  onClick : boolean = true;
+
+
+  clicked() {
+    this.onClick = false;
+  }
+
+  notclicked() {
+    this.onClick = true;
+  }
+
+
   myList : ListInterface[] = [
     {
     task : "read",
@@ -21,11 +36,7 @@ export class ListComponent {
   ]
 
   addToList(task : string) {
-    this.myList.push({
-      task,
-      checked : false,
-      date : new Date()
-    })
+    this.myList = [{task,checked : false, date : new Date()}, ...this.myList]
     console.log(task)
     console.log(this.myList)
   }
