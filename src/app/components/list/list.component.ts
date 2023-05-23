@@ -25,6 +25,7 @@ export class ListComponent {
   todayDate = new Date();
   todayYear = this.todayDate.getFullYear();
   todayMonth = this.todayDate.getMonth() + 1;
+  alphaMonth = this.todayDate.toLocaleDateString('default', {month: 'long'})
   todayDay = this.todayDate.getDate();
 
   currentDate = `${this.todayMonth}/${this.todayDay}/${this.todayYear}`
@@ -44,8 +45,8 @@ export class ListComponent {
   ]
 
   addToList(task : string, date : string) {
-    let years = this.todayYear
-    console.log(years.toString()[0])
+    // let years = this.todayYear
+    // console.log(years.toString()[0])
 
     if (!date && !task) {
       alert(`Cannot leave empty!`)
@@ -62,43 +63,47 @@ export class ListComponent {
       return;
     }
 
-    // Date Validations
-
-    const year = date[0] + date[1] + date[2] + date[3]
     
-    // Year
-    if (Number(year) < Number(this.todayYear)) {
-      alert(`Must be after ${this.todayYear}`)
-      return;
-
-    }
-
-    
-
-
-    // Month
-    if (Number(date[6]) < Number(this.todayMonth)) {
-      alert('Cannot add before')
-      return;
-    }
-
     let month = ''
     if(date[5] === '1') {
       month = date[5] + date[6]
     } else {
       month = date[6]
     }
-
+    
+    
     let day = ''
     if(Number(date[8]) >= 1) {
       day = date[8] + date[9]
     } else {
       day = date[9]
     }
-
+    
+    const year = date[0] + date[1] + date[2] + date[3]
 
     const formattedDate = `${month}/${day}/${year}`
-
+    
+    // Year Validation
+    
+    
+    // Year
+    if (Number(year) < Number(this.todayYear)) {
+      alert(`Must be after ${this.todayYear}`)
+      return;
+    }  
+    
+    
+    // Day Validation
+    
+    
+    // Month Validation
+    if (Number(year) > Number(this.todayYear)) {
+    // this.myList = [{task,checked : false, date : formattedDate}, ...this.myList]
+    } else if (Number(month) < Number(this.todayMonth)) {
+      alert(`Must be after ${this.alphaMonth}`)
+      return;
+    }
+    
     this.myList = [{task,checked : false, date : formattedDate}, ...this.myList]
     // console.log(task)
     // console.log(day)
