@@ -44,6 +44,9 @@ export class ListComponent {
   ]
 
   addToList(task : string, date : string) {
+    let years = this.todayYear
+    console.log(years.toString()[0])
+
     if (!date && !task) {
       alert(`Cannot leave empty!`)
       return;
@@ -56,6 +59,26 @@ export class ListComponent {
 
     if (!task) {
       alert(`Please add a task!`)
+      return;
+    }
+
+    // Date Validations
+
+    const year = date[0] + date[1] + date[2] + date[3]
+    
+    // Year
+    if (Number(year) < Number(this.todayYear)) {
+      alert(`Must be after ${this.todayYear}`)
+      return;
+
+    }
+
+    
+
+
+    // Month
+    if (Number(date[6]) < Number(this.todayMonth)) {
+      alert('Cannot add before')
       return;
     }
 
@@ -73,7 +96,6 @@ export class ListComponent {
       day = date[9]
     }
 
-    const year = date[0] + date[1] + date[2] + date[3]
 
     const formattedDate = `${month}/${day}/${year}`
 
