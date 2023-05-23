@@ -94,6 +94,15 @@ export class ListComponent {
     
     
     // Day Validation
+
+    if (Number(year) > Number(this.todayYear)) {
+
+    } else if (Number(month) > Number(this.todayMonth)) {
+
+    } else if (Number(day) < Number(this.todayDay)) {
+      alert(`Must be after today!`)
+      return;
+    }
     
     
     // Month Validation
