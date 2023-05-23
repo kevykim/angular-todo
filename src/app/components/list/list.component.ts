@@ -38,12 +38,15 @@ export class ListComponent {
     },
     {
       task: "study",
-      checked: true,
+      checked: false,
       date: this.currentDate
     }
   ]
 
   addToList(task : string, date : string) {
+    // if (!date) {
+    //   alert('Enter a valid date')
+    // }
 
     let month = ''
     if(date[5] === '1') {
@@ -64,9 +67,17 @@ export class ListComponent {
     const formattedDate = `${month}/${day}/${year}`
 
     this.myList = [{task,checked : false, date : formattedDate}, ...this.myList]
-    console.log(task)
-    console.log(day)
-    console.log(this.myList)
+    // console.log(task)
+    // console.log(day)
+    // console.log(this.myList)
+  }
+
+  undoCheck() : void {
+    for (const key in this.myList) {
+      let value = this.myList[key]
+      value.checked = false
+      // console.log(this.myList)
+    }
   }
 
 }

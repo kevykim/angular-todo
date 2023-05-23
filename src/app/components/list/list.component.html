@@ -1,11 +1,16 @@
 <div>
+
     <div class="list_div" *ngFor="let lists of myList">
-        {{ lists.task }}
-        {{ lists.date}}
-        <!-- <input type="checkbox" value={{!lists.checked}}/> -->
-    </div>
+            <div *ngIf="lists.checked !== true">
+                {{ lists.task }}
+                {{ lists.date}}
+                <input #isChecked type="checkbox" (click)="lists.checked = true" />
+            </div>
+        </div>
     
     <button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
+
+    <button (click)="undoCheck()">Undo</button>
     
     <div *ngIf="show === true">
         <label>task</label>
