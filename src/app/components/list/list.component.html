@@ -1,17 +1,19 @@
-<div class="list_div" *ngFor="let lists of myList">
-    {{ lists.task }}
-    {{ lists.date}}
-    <!-- <input type="checkbox" value={{!lists.checked}}/> -->
-</div>
-
-<button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
-
-<div *ngIf="show === true">
-    <label>task</label>
-    <input #newItem type="text" />
-    <label>date</label>
-    <input type="date" />
-    <button (keyup.enter)="addToList(newItem.value); newItem.value = ''" (click)="addToList(newItem.value)"
-        (click)="show = false; notclicked()">Add Task</button>
-    <button (click)="show = false; notclicked()">Cancel</button>
+<div>
+    <div class="list_div" *ngFor="let lists of myList">
+        {{ lists.task }}
+        {{ lists.date}}
+        <!-- <input type="checkbox" value={{!lists.checked}}/> -->
+    </div>
+    
+    <button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
+    
+    <div *ngIf="show === true">
+        <label>task</label>
+        <input #newItem type="text" />
+        <label>date</label>
+        <input #newDate type="date" />
+        <button (keyup.enter)="addToList(newItem.value, newDate.value); newItem.value = ''" (click)="addToList(newItem.value, newDate.value)"
+            (click)="show = false; notclicked()">Add Task</button>
+        <button (click)="show = false; notclicked()">Cancel</button>
+    </div>
 </div>
