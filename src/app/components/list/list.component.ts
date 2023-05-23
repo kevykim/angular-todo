@@ -8,6 +8,8 @@ import { ListInterface } from './list-interface';
 })
 export class ListComponent {
 
+  showEdit : boolean = false;
+
 
   show : boolean = false;
   onClick : boolean = true;
@@ -118,6 +120,78 @@ export class ListComponent {
     // console.log(day)
     // console.log(this.myList)
   }
+
+  // editList(task : string, date : string) {
+  //   if (!date && !task) {
+  //     alert(`Cannot leave empty!`)
+  //     return;
+  //   }
+
+  //   if (!date) {
+  //     alert('Please add a date!')
+  //     return;
+  //   }
+
+  //   if (!task) {
+  //     alert(`Please add a task!`)
+  //     return;
+  //   }
+
+    
+  //   let month = ''
+  //   if(date[5] === '1') {
+  //     month = date[5] + date[6]
+  //   } else {
+  //     month = date[6]
+  //   }
+    
+    
+  //   let day = ''
+  //   if(Number(date[8]) >= 1) {
+  //     day = date[8] + date[9]
+  //   } else {
+  //     day = date[9]
+  //   }
+    
+  //   const year = date[0] + date[1] + date[2] + date[3]
+
+  //   const formattedDate = `${month}/${day}/${year}`
+    
+  //   // Year Validation
+    
+    
+  //   // Year
+  //   if (Number(year) < Number(this.todayYear)) {
+  //     alert(`Must be after ${this.todayYear}`)
+  //     return;
+  //   }  
+    
+    
+  //   // Day Validation
+
+  //   if (Number(year) > Number(this.todayYear)) {
+
+  //   } else if (Number(month) > Number(this.todayMonth)) {
+
+  //   } else if (Number(day) < Number(this.todayDay)) {
+  //     alert(`Must be after today!`)
+  //     return;
+  //   }
+
+    
+    
+  //   // Month Validation
+  //   if (Number(year) > Number(this.todayYear)) {
+  //   // this.myList = [{task,checked : false, date : formattedDate}, ...this.myList]
+  //   } else if (Number(month) < Number(this.todayMonth)) {
+  //     alert(`Must be after ${this.alphaMonth}`)
+  //     return;
+  //   }
+    
+  //   task = task;
+  //   date = date;
+    
+  // }
 
   undoCheck() : void {
     for (const key in this.myList) {

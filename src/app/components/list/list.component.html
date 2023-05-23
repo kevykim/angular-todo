@@ -5,10 +5,20 @@
                 {{ lists.task }}
                 {{ lists.date}}
                 <input *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
+                <!-- <button *ngIf="onClick" (click)="showEdit = !showEdit" >Edit</button> -->
+                <!-- <div *ngIf="showEdit">
+                    <label>task</label>
+                    <input #newItem type="text" required value={{lists.task}} />
+                    <label>date</label>
+                    <input #newDate type="date" required value={{lists.date}} />
+                    <button (keyup.enter)="editList(newItem.value, newDate.value); newItem.value = ''"
+                        (click)="editList(newItem.value, newDate.value)" (click)="showEdit = false; notclicked()">Edit Task</button>
+                    <button (click)="showEdit = false; notclicked()">Cancel</button>
+                </div> -->
             </div>
         </div>
         
-        <button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
+        <button *ngIf="onClick" (click)="show = !show; clicked()">New</button>
         <button *ngIf="onClick && undoCheckAppear()" (click)="undoCheck()">Undo</button>
         
     
@@ -22,3 +32,4 @@
         <button (click)="show = false; notclicked()">Cancel</button>
     </div>
 </div>
+
