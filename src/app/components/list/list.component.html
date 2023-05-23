@@ -4,13 +4,13 @@
             <div *ngIf="lists.checked !== true">
                 {{ lists.task }}
                 {{ lists.date}}
-                <input #isChecked type="checkbox" (click)="lists.checked = true" />
+                <input *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
             </div>
         </div>
-    
-    <button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
-
-    <button (click)="undoCheck()">Undo</button>
+        
+        <button *ngIf="onClick" (click)="show = !show; clicked()">New Task</button>
+        <button *ngIf="onClick && undoCheckAppear()" (click)="undoCheck()">Undo</button>
+        
     
     <div *ngIf="show === true">
         <label>task</label>

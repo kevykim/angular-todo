@@ -80,4 +80,23 @@ export class ListComponent {
     }
   }
 
+
+  undoCheckAppear() : boolean {
+    let counter = 0;
+    for (const key in this.myList) {
+      let val = this.myList[key]
+      if (val.checked === true) {
+        counter++;
+      }
+
+      if (counter >= 1) {
+        return true
+      }
+      
+    }
+    
+    return false
+
+  }
+
 }
