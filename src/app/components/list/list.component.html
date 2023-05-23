@@ -12,13 +12,13 @@
         <button *ngIf="onClick && undoCheckAppear()" (click)="undoCheck()">Undo</button>
         
     
-    <div *ngIf="show === true">
+    <form *ngIf="show === true">
         <label>task</label>
-        <input #newItem type="text" />
+        <input  #newItem type="text" required/>
         <label>date</label>
-        <input #newDate type="date" />
+        <input #newDate type="date" required/>
         <button (keyup.enter)="addToList(newItem.value, newDate.value); newItem.value = ''" (click)="addToList(newItem.value, newDate.value)"
             (click)="show = false; notclicked()">Add Task</button>
         <button (click)="show = false; notclicked()">Cancel</button>
-    </div>
+    </form>
 </div>

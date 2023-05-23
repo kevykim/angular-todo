@@ -44,9 +44,20 @@ export class ListComponent {
   ]
 
   addToList(task : string, date : string) {
-    // if (!date) {
-    //   alert('Enter a valid date')
-    // }
+    if (!date && !task) {
+      alert(`Cannot leave empty!`)
+      return;
+    }
+
+    if (!date) {
+      alert('Please add a date!')
+      return;
+    }
+
+    if (!task) {
+      alert(`Please add a task!`)
+      return;
+    }
 
     let month = ''
     if(date[5] === '1') {
