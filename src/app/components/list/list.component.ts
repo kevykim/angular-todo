@@ -35,12 +35,12 @@ export class ListComponent {
 
   myList : ListInterface[] = [
     {
-    task : "read",
+    task : "Read",
     checked: false,
     date: this.currentDate
     },
     {
-      task: "study",
+      task: "Study",
       checked: false,
       date: this.currentDate
     }
@@ -114,8 +114,10 @@ export class ListComponent {
       alert(`Must be after ${this.alphaMonth}`)
       return;
     }
+
+
     
-    this.myList = [{task,checked : false, date : formattedDate}, ...this.myList]
+    this.myList = [{task : task.charAt(0).toUpperCase() + task.slice(1) ,checked : false, date : formattedDate}, ...this.myList]
     // console.log(task)
     // console.log(day)
     // console.log(this.myList)

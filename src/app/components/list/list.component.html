@@ -1,10 +1,10 @@
-<div class="flex-col justify-center items-center p-2 ">
-<div class=" h-auto display flex-col justify-around">
-    <div class="display flex-col align-center justify-center" *ngFor="let lists of myList">
-            <div class=" text-left text-sm border border-white bg-white rounded-lg h-8" *ngIf="lists.checked !== true">
+<div class="flex-col justify-between items-center p-2 ">
+
+    <div class="h-10" *ngFor="let lists of myList">
+            <div class="flex justify-evenly align-center text-center font-bold  bg-white y-2 px-4 rounded" *ngIf="lists.checked !== true">
                 {{ lists.task }}
                 {{ lists.date}}
-                <input class="" *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
+                <input class="ml-3 h-5 w-5 mt-0.5 hover:bg-gray-200" *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
                 <!-- <button *ngIf="onClick" (click)="showEdit = !showEdit" >Edit</button> -->
                 <!-- <div *ngIf="showEdit">
                     <label>task</label>
@@ -17,9 +17,11 @@
                 </div> -->
             </div>
         </div>
-</div>     
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" *ngIf="onClick" (click)="show = !show; clicked()">New</button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" *ngIf="onClick && undoCheckAppear()" (click)="undoCheck()">Undo</button>
+
+        <div class="flex justify-between items-center w-48">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" *ngIf="onClick" (click)="show = !show; clicked()">New</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" *ngIf="onClick && undoCheckAppear()" (click)="undoCheck()">Undo</button>
+        </div>
         
     
     <div *ngIf="show === true">
