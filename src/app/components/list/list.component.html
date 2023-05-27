@@ -1,4 +1,4 @@
-<div class="flex-col justify-between items-center p-2 ">
+<div class="flex-col h-auto justify-between items-center p-2 border-2 border-blue-500 rounded-md">
 
     <div class="h-10" *ngFor="let lists of myList">
             <div class="flex justify-evenly align-center text-center font-bold  bg-white y-2 px-4 rounded" *ngIf="lists.checked !== true">
@@ -24,15 +24,15 @@
         </div>
         
     
-    <div class="w-48 h-48" *ngIf="show === true">
-        <div class="flex-row justify-between w-48 items-center">
-            <label class="font-bold">Task</label>
-            <input class="w-32"  #newItem type="text" required/>
+    <div class="flex flex-col h-32 justify-evenly" *ngIf="show === true">
+        <div class="flex justify-between items-center">
+            <label class="font-bold text-blue-500">Task:</label>
+            <input class="w-36 font-bold rounded"  #newItem type="text" required/>
 
         </div>
-        <div class="flex-row justify-between w-48 items-center">
-            <label class="font-bold">Date</label>
-            <input class="w-32" #newDate type="date" required/>
+        <div class="flex justify-between items-center ">
+            <label class="font-bold text-blue-500">Date:</label>
+            <input class="w-36 font-bold rounded" #newDate type="date" required/>
         </div>
 
         <div class="flex justify-between items-center w-48">
