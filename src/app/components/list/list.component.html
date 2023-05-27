@@ -4,7 +4,7 @@
             <div class="flex justify-evenly align-center text-center font-bold  bg-white y-2 px-4 rounded" *ngIf="lists.checked !== true">
                 {{ lists.task }}
                 {{ lists.date}}
-                <input class="ml-3 h-5 w-5 mt-0.5 hover:bg-gray-200" *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
+                <input class=" ml-3 h-5 w-5 mt-0.5 hover:bg-gray-200" *ngIf="onClick" type="checkbox" (click)="lists.checked = true" />
                 <!-- <button *ngIf="onClick" (click)="showEdit = !showEdit" >Edit</button> -->
                 <!-- <div *ngIf="showEdit">
                     <label>task</label>
@@ -24,14 +24,23 @@
         </div>
         
     
-    <div *ngIf="show === true">
-        <label>task</label>
-        <input  #newItem type="text" required/>
-        <label>date</label>
-        <input #newDate type="date" required/>
-        <button (keyup.enter)="addToList(newItem.value, newDate.value); newItem.value = ''" (click)="addToList(newItem.value, newDate.value)"
-            (click)="show = false; notclicked()">Add Task</button>
-        <button (click)="show = false; notclicked()">Cancel</button>
+    <div class="w-48 h-48" *ngIf="show === true">
+        <div class="flex-row justify-between w-48 items-center">
+            <label class="font-bold">Task</label>
+            <input class="w-32"  #newItem type="text" required/>
+
+        </div>
+        <div class="flex-row justify-between w-48 items-center">
+            <label class="font-bold">Date</label>
+            <input class="w-32" #newDate type="date" required/>
+        </div>
+
+        <div class="flex justify-between items-center w-48">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (keyup.enter)="addToList(newItem.value, newDate.value); newItem.value = ''" (click)="addToList(newItem.value, newDate.value)"
+            (click)="show = false; notclicked()">Add</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="show = false; notclicked()">Cancel</button>
+        </div>
+
     </div>
 </div>
 
